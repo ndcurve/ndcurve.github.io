@@ -1,8 +1,0 @@
-NODE_VERSION=$(node --version | sed "s/v//g" | cut -d'.' -f 1)
-if (($NODE_VERSION < 16)); then echo "Node version 16 or greater required" && exit; fi
-
- git config --global push.default current
- git clone https://github.com/ndcurve/Ndcurve.git && \
- touch Ndcurve/Target.json &&
- (cd Ndcurve && ./syp init) || exit
-
