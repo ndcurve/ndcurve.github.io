@@ -3,7 +3,11 @@
     "details": [
       {
         "appID": "com.ndcurve.Slyp",
-        "paths": ["/links/*"]
+        "paths": ["/links/s/*"]
+      },
+      {
+        "appID": "com.ndcurve.SlypBusiness",
+        "paths": ["/links/sb/*"]
       }
     ]
   }
