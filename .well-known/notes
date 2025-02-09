@@ -1,0 +1,2 @@
+A file named _config.yml in the root folder with the following contents is required for github pages to work
+include: [".well-known"]
