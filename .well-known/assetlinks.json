@@ -1,0 +1,20 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ndcurve.SlypBusiness",
+      "sha256_cert_fingerprints":
+        ["81:7C:84:1B:ED:38:A4:33:DC:1F:AD:E3:E3:AC:34:CC:57:EF:77:79:BC:88:29:4B:3E:92:9D:5B:59:64:82:02"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ndcurve.SlypBusiness.dev",
+      "sha256_cert_fingerprints":
+        ["D5:20:E1:E2:44:7F:9D:34:ED:87:95:66:C7:63:D8:62:11:18:43:8F:F8:AB:08:31:B7:AA:D6:B1:A7:85:D7:64"]
+    }
+  },
+]
