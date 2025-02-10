@@ -12,6 +12,24 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
+      "package_name": "com.ndcurve.Slyp",
+      "sha256_cert_fingerprints":
+        ["26:3B:70:C3:AB:4B:0D:C5:24:6F:86:84:7C:8E:1D:B7:01:6E:17:45:17:6F:82:B5:81:A1:B8:12:4D:A2:08:8E"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ndcurve.Slyp.dev",
+      "sha256_cert_fingerprints":
+        ["D5:20:E1:E2:44:7F:9D:34:ED:87:95:66:C7:63:D8:62:11:18:43:8F:F8:AB:08:31:B7:AA:D6:B1:A7:85:D7:64"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
       "package_name": "com.ndcurve.SlypBusiness.dev",
       "sha256_cert_fingerprints":
         ["D5:20:E1:E2:44:7F:9D:34:ED:87:95:66:C7:63:D8:62:11:18:43:8F:F8:AB:08:31:B7:AA:D6:B1:A7:85:D7:64"]
