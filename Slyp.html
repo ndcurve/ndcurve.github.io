@@ -6,14 +6,11 @@
 
   <script>
     window.addEventListener('DOMContentLoaded', (event) => {
-        let url = window.location.href
-        let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
-        if (url === `https://slyp.app/links/${app}`)
-          url += '/?get'
+        let app = 'Slyp'
 
         var userAgent = navigator.userAgent.toLowerCase();
         if (userAgent.indexOf('android') > -1) {
-          window.location.href = `https://play.google.com/store/apps/details?id=com.ndcurve.${app}&url=${url}`;
+          window.location.href = `https://play.google.com/store/apps/details?id=com.ndcurve.${app}`;
         } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipod') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('mac') > -1) {
               if (app === "Slyp")
                 window.location.href = 'https://apps.apple.com/app/id6504203214';
@@ -22,7 +19,7 @@
               else
                 window.location.href = 'https://slyp.app';
         } else {
-          window.location.href = `https://play.google.com/store/apps/details?id=com.ndcurve.${app}&url=${url}`;
+          window.location.href = `https://play.google.com/store/apps/details?id=com.ndcurve.${app}`;
         }
     });
   </script>
