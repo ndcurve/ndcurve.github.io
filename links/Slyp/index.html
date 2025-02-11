@@ -8,8 +8,6 @@
     window.addEventListener('DOMContentLoaded', (event) => {
         let url = window.location.href
         let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
-        if (url === `https://slyp.app/links/${app}`)
-          url += '/?get'
 
         var userAgent = navigator.userAgent.toLowerCase();
         if (userAgent.indexOf('android') > -1) {
