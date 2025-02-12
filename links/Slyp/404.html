@@ -1,34 +1,12 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        let url = window.location.href
-        let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
-
-        var userAgent = navigator.userAgent.toLowerCase();
-        if (userAgent.indexOf('android') > -1) {
-          window.location.href = `https://play.google.com/store/apps/details?id=com.ndcurve.${app}&url=${url}`;
-        } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipod') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('mac') > -1) {
-              if (app === "Slyp")
-                window.location.href = 'https://apps.apple.com/app/id6504203214';
-              else if (app === "SlypBusiness")
-                window.location.href = 'https://apps.apple.com/app/id6504781331';
-              else
-                window.location.href = 'https://slyp.app';
-        } else {
-          window.location.href = `https://play.google.com/store/apps/details?id=com.ndcurve.${app}&url=${url}`;
-        }
-    });
-  </script>
-
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-  </body>
+<html>
+<head>
+    <script>
+        // Redirect to index.html
+        window.location.replace("/index.html");
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
 </html>
