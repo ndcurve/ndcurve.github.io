@@ -55,7 +55,8 @@
       const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
       const newUrl = url.replace('https://slyp.app','https://ndcurve.com')
       alert(newUrl)
-      window.open(newUrl)
+      window.location.href = newUrl
+      // window.open(newUrl)
     }
 
     window.addEventListener('DOMContentLoaded', (event) => {
