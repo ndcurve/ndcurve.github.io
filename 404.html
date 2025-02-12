@@ -32,7 +32,7 @@
     }
 
     function execute() {
-        let url = window.location.href
+        let url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
 
         let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
@@ -52,9 +52,10 @@
     }
 
     function onButtonClicked() {
-      const newUrl = window.location.href.replace('https://slyp.app','https://ndcurve.com')
+      const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
+      const newUrl = url.replace('https://slyp.app','https://ndcurve.com')
       alert(newUrl)
-      window.location.href = newUrl
+      window.open(newUrl)
     }
 
     window.addEventListener('DOMContentLoaded', (event) => {
