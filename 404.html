@@ -53,7 +53,8 @@
 
     function onButtonClicked() {
       const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
-      const newUrl = url.replace('https://slyp.app','https://ndcurve.com')
+      // const newUrl = url.replace('https://slyp.app','https://ndcurve.com')
+      const newUrl = url
       alert(newUrl)
       // window.location.href = newUrl
       window.location.href = `intent://${newUrl.replace('https://','')}/#Intent;scheme=https;action=android.intent.action.VIEW;end;`
@@ -75,6 +76,8 @@
 
         if (!isWebView)
           execute()
+        else
+          onButtonClicked()
 
     });
   </script>
