@@ -51,6 +51,12 @@
         }
     }
 
+    function onButtonClicked() {
+      const newUrl = window.location.href.replace('https://slyp.app','https://ndcurve.com')
+      alert(newUrl)
+      window.location.href = newUrl
+    }
+
     window.addEventListener('DOMContentLoaded', (event) => {
         let url = window.location.href
         if (!url.startsWith('https://slyp.app/links/')) {
@@ -73,7 +79,7 @@
 
   </head>
   <body>
-    <button type="button" id="open-button" onclick="window.location.href = window.location.href.replace('https://slyp.app','https://ndcurve.com')">Open App</button>
+    <button type="button" id="open-button" onclick="onButtonClicked()">Open App</button>
     <header></header>
     <main></main>
     <footer></footer>
