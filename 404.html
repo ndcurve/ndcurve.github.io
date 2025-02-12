@@ -5,12 +5,34 @@
     <title></title>
 
   <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        let url = window.location.href
-        if (!url.startsWith('https://slyp.app/links/')) {
-            window.location.replace("/index.html");
-            return
+
+    function isWebViewContext() {
+      var standalone = window.navigator.standalone,
+          userAgent = window.navigator.userAgent.toLowerCase(),
+          safari = /safari/.test(userAgent),
+          ios = /iphone|ipod|ipad|mac/.test(userAgent);
+
+      if (ios) {
+        if (!standalone && safari) {
+          // Safari
+          return false
+        } else if (!standalone && !safari) {
+          // iOS webview
+          return true
         }
+      } else {
+        if (userAgent.includes('wv')) {
+          // Android webview
+          return true
+        } else {
+          // Chrome
+          return false
+        }
+      }
+    }
+
+    function execute() {
+        let url = window.location.href
 
         let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
@@ -27,11 +49,26 @@
         } else {
           window.location.href = `https://play.google.com/store/apps/details?id=com.ndcurve.${app}&url=${url}`;
         }
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        let url = window.location.href
+        if (!url.startsWith('https://slyp.app/links/')) {
+            window.location.replace("/index.html");
+            return
+        }
+
+        const isWebView = isWebViewContext()
+
+        if (!isWebView)
+          execute()
+
     });
   </script>
 
   </head>
   <body>
+    <button type="button" onclick="execute()">Open App To Visit</button>
     <header></header>
     <main></main>
     <footer></footer>
