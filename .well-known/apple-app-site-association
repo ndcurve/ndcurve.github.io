@@ -2,11 +2,11 @@
   "applinks": {"apps": [],
     "details": [
       {
-        "appID": "com.ndcurve.Slyp",
+        "appID": "Y577FTG26P.com.ndcurve.Slyp",
         "paths": ["/links/Slyp/*"]
       },
       {
-        "appID": "com.ndcurve.SlypBusiness",
+        "appID": "Y577FTG26P.com.ndcurve.SlypBusiness",
         "paths": ["/links/SlypBusiness/*"]
       }
     ]
