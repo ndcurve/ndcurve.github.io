@@ -58,7 +58,11 @@
             return
         }
 
+        let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
+
         const isWebView = isWebViewContext()
+
+        document.getElementById("open-button").innerHTML = `Open ${app} App`
 
         if (!isWebView)
           execute()
@@ -69,7 +73,7 @@
 
   </head>
   <body>
-    <button type="button" onclick="execute()">Open App To Visit</button>
+    <button type="button" id="open-button" onclick="execute()">Open App</button>
     <header></header>
     <main></main>
     <footer></footer>
