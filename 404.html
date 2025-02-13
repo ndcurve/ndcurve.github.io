@@ -54,6 +54,8 @@
     }
 
     function onButtonClicked() {
+      if (window.location.href.includes('?skipiosreload'))
+          return
       const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
       // alert(url)
 
