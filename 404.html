@@ -33,8 +33,6 @@
 
     function execute() {
         let url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
-        // if (url.includes('?skipiosreload'))
-        //   return
 
         let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
@@ -54,8 +52,6 @@
     }
 
     function onButtonClicked() {
-      // if (window.location.href.includes('?skipiosreload'))
-      //     return
       const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
       // alert(url)
       let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
@@ -64,31 +60,14 @@
       if (userAgent.indexOf('android') > -1)  // For Android this will work. Ref https://developer.chrome.com/docs/android/intents
         window.location.href = `intent://${url.replace('https://','')}/#Intent;scheme=https;action=android.intent.action.VIEW;end;`
       else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipod') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('mac') > -1) {
-          // if (window.location.href.includes('ndcurve.com'))
-          //   window.location.href = url.replace('https','x-safari-https').replace('ndcurve.com','slyp.app').replace('?skipiosreload', '')
-          // else
-          //   window.location.href = url.replace('https','x-safari-https').replace('slyp.app', 'ndcurve.com') + '?skipiosreload'
-          // window.location.href = url.replace('https://slyp.app','https://ndcurve.com')
-
           // Current
           window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
-
-          // window.location = window.location.href.replace('https','x-safari-https')
-
-         // if (app === "Slyp")
-         //    document.getElementById("webview-meta").setAttribute("content", `app-id=${'https://apps.apple.com/app/id6504203214'}, app-argument=${url}`);
-
         }
     }
 
     window.addEventListener('DOMContentLoaded', (event) => {
         let url = window.location.href
         if (window.location.href.includes('?skipiosreload') || window.location.href.startsWith('https://ndcurve.com/links/')) {
-            // window.open(url.replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''), '_system')
-            // alert(url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''))
-            // window.location.href = url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', '')
-            // execute()
-
             const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
             let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
@@ -119,7 +98,6 @@
   </script>
 
 
-<!--   <meta id="webview-meta" name="apple-itunes-app" content="app-id=6504203214, app-argument=myURL"> -->
   <meta id="webview-meta" name="apple-itunes-app" content="app-id=6504203214">
   </head>
   <body>
