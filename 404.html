@@ -91,17 +91,11 @@
 
             const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
             let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
-            //
-            // alert(app + ' link is ' + url)
-
-            // if (app === "Slyp")
-            //   document.getElementById("webview-meta").setAttribute("content", `app-id=${'https://apps.apple.com/app/id6504203214'}, app-argument=${window.location.href.replace('?skipiosreload', '')}`);
 
             if (app === "Slyp")
-              document.getElementById("webview-meta").setAttribute("content", `app-id='6504203214', app-argument=${url}`);
-            //   // document.getElementById("webview-meta").setAttribute("content", `app-id=6504203214, app-argument=${url}`);
-            // else if (app === "SlypBusiness")
-            //   document.getElementById("webview-meta").setAttribute("content", `app-id=6504781331, app-argument=${url}`);
+              document.getElementById("webview-meta").setAttribute("content", `app-id=6504203214, app-argument=${url}`);
+            else if (app === "SlypBusiness")
+              document.getElementById("webview-meta").setAttribute("content", `app-id=6504781331, app-argument=${url}`);
             return
         }
 
