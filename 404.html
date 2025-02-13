@@ -62,18 +62,22 @@
       var userAgent = navigator.userAgent.toLowerCase();
       if (userAgent.indexOf('android') > -1)  // For Android this will work. Ref https://developer.chrome.com/docs/android/intents
         window.location.href = `intent://${url.replace('https://','')}/#Intent;scheme=https;action=android.intent.action.VIEW;end;`
-      else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipod') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('mac') > -1)
-        window.location.href = url.replace('https','x-safari-https').replace('slyp.app', 'ndcurve.com') + '?skipiosreload'
-        // window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
-        // window.location.href = url.replace('https://slyp.app','https://ndcurve.com')
+      else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipod') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('mac') > -1) {
+          if (window.location.href.includes('ndcurve.com'))
+            window.location.href = url.replace('https','x-safari-https').replace('ndcurve.com','slyp.app').replace('?skipiosreload', '')
+          else
+            window.location.href = url.replace('https','x-safari-https').replace('slyp.app', 'ndcurve.com') + '?skipiosreload'
+          // window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
+          // window.location.href = url.replace('https://slyp.app','https://ndcurve.com')
+        }
     }
 
     window.addEventListener('DOMContentLoaded', (event) => {
         let url = window.location.href
         if (window.location.href.includes('?skipiosreload')) {
             // window.open(url.replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''), '_system')
-            alert(url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''))
-            window.location.href = url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', '')
+            // alert(url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''))
+            // window.location.href = url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', '')
             return
         }
 
@@ -99,7 +103,7 @@
 
   </head>
   <body>
-<!--     <button type="button" id="open-button" onclick="onButtonClicked()">Open App</button> -->
+    <button type="button" id="open-button" onclick="onButtonClicked()">Open App</button>
     <header></header>
     <main></main>
     <footer></footer>
