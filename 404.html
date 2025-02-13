@@ -92,7 +92,7 @@
             const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
             let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
-            alert(url)
+            alert(app,'link is',url)
             if (app === "Slyp")
               document.getElementById("webview-meta").setAttribute("content", `app-id=6504203214, app-argument=${url}`);
             else if (app === "SlypBusiness")
