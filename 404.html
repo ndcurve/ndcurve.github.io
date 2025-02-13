@@ -89,15 +89,15 @@
             // window.location.href = url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', '')
             // execute()
 
-            const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
-            let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
-
-            alert(app + ' link is ' + url)
-            if (app === "Slyp")
-              document.getElementById("webview-meta").setAttribute("content", `app-id=6504203214, app-argument='https://slyp.app/links/Slyp/dD1vJmlkPVJJQ0tTQVJFTkFfT1VUTEVU'`);
-              // document.getElementById("webview-meta").setAttribute("content", `app-id=6504203214, app-argument=${url}`);
-            else if (app === "SlypBusiness")
-              document.getElementById("webview-meta").setAttribute("content", `app-id=6504781331, app-argument=${url}`);
+            // const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
+            // let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
+            //
+            // alert(app + ' link is ' + url)
+            // if (app === "Slyp")
+            //   document.getElementById("webview-meta").setAttribute("content", `app-id=6504203214, app-argument='https://slyp.app/links/Slyp/dD1vJmlkPVJJQ0tTQVJFTkFfT1VUTEVU'`);
+            //   // document.getElementById("webview-meta").setAttribute("content", `app-id=6504203214, app-argument=${url}`);
+            // else if (app === "SlypBusiness")
+            //   document.getElementById("webview-meta").setAttribute("content", `app-id=6504781331, app-argument=${url}`);
             return
         }
 
@@ -121,7 +121,7 @@
   </script>
 
 
-  <meta id="webview-meta" name="apple-itunes-app" content="app-id=6504203214, app-argument=https://slyp.app/links/Slyp/dD1vJmlkPVJJQ0tTQVJFTkFfT1VUTEVU">
+  <meta id="webview-meta" name="apple-itunes-app" content="app-id=myAppStoreID, app-argument=myURL">
   </head>
   <body>
 <!--     <button type="button" id="open-button" onclick="onButtonClicked()">Open App</button> -->
