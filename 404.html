@@ -67,7 +67,7 @@
 
     window.addEventListener('DOMContentLoaded', (event) => {
         let url = window.location.href
-        if (window.location.href.includes('?skipiosreload') || window.location.href.startsWith('https://ndcurve.com/links/')) {
+        if (window.location.href.includes('?skipiosreload')) {
             const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
             let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
