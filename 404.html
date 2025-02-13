@@ -58,6 +58,7 @@
       //     return
       const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
       // alert(url)
+      let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
       var userAgent = navigator.userAgent.toLowerCase();
       if (userAgent.indexOf('android') > -1)  // For Android this will work. Ref https://developer.chrome.com/docs/android/intents
@@ -70,9 +71,13 @@
           // window.location.href = url.replace('https://slyp.app','https://ndcurve.com')
 
           // Current
-          // window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
+          window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
 
-          window.location = window.location.href.replace('https','x-safari-https')
+          // window.location = window.location.href.replace('https','x-safari-https')
+
+          if (app === "Slyp")
+            document.getElementById("webview-meta").setAttribute("content", `app-id=${'https://apps.apple.com/app/id6504203214'}, app-argument=${url}`);
+
         }
     }
 
@@ -83,6 +88,8 @@
             // alert(url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''))
             // window.location.href = url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', '')
             // execute()
+            if (app === "Slyp")
+              document.getElementById("webview-meta").setAttribute("content", `app-id=${'https://apps.apple.com/app/id6504203214'}, app-argument=${window.location.href.replace('?skipiosreload', '')}`);
             return
         }
 
@@ -106,6 +113,7 @@
   </script>
 
 
+  <meta id="webview-meta" name="apple-itunes-app" content="app-id=myAppStoreID, app-argument=myURL">
   </head>
   <body>
 <!--     <button type="button" id="open-button" onclick="onButtonClicked()">Open App</button> -->
