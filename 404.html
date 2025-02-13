@@ -33,8 +33,8 @@
 
     function execute() {
         let url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
-        if (url.includes('?skipiosreload'))
-          return
+        // if (url.includes('?skipiosreload'))
+        //   return
 
         let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
@@ -54,8 +54,8 @@
     }
 
     function onButtonClicked() {
-      if (window.location.href.includes('?skipiosreload'))
-          return
+      // if (window.location.href.includes('?skipiosreload'))
+      //     return
       const url = window.location.href.split('?')[0] // Remove additional arguments forwarded by instagram, etc..
       // alert(url)
 
@@ -63,14 +63,18 @@
       if (userAgent.indexOf('android') > -1)  // For Android this will work. Ref https://developer.chrome.com/docs/android/intents
         window.location.href = `intent://${url.replace('https://','')}/#Intent;scheme=https;action=android.intent.action.VIEW;end;`
       else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipod') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('mac') > -1)
-        window.open(url.replace('https','x-safari-https'), '_system')
-        // window.open(url, '_system')
+        window.location.href = url.replace('https','x-safari-https').replace('slyp.app', 'ndcurve.com') + '?skipiosreload'
         // window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
         // window.location.href = url.replace('https://slyp.app','https://ndcurve.com')
     }
 
     window.addEventListener('DOMContentLoaded', (event) => {
         let url = window.location.href
+        if (window.location.href.includes('?skipiosreload')) {
+            window.location.href = url.replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', '')
+            return
+        }
+
         if (!url.startsWith('https://slyp.app/links/')) {
             window.location.replace("/index.html");
             return
