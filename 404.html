@@ -59,7 +59,7 @@
       if (userAgent.indexOf('android') > -1)  // For Android this will work. Ref https://developer.chrome.com/docs/android/intents
         window.location.href = `intent://${url.replace('https://','')}/#Intent;scheme=https;action=android.intent.action.VIEW;end;`
       else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipod') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('mac') > -1)
-        window.location.href = url
+        window.location.href = url.replace('https','x-safari-https')
         // window.location.href = url.replace('https://slyp.app','https://ndcurve.com')
     }
 
