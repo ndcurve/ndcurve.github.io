@@ -67,9 +67,12 @@
           //   window.location.href = url.replace('https','x-safari-https').replace('ndcurve.com','slyp.app').replace('?skipiosreload', '')
           // else
           //   window.location.href = url.replace('https','x-safari-https').replace('slyp.app', 'ndcurve.com') + '?skipiosreload'
-          alert(url.replace('https','x-safari-https') + '?skipiosreload')
-          window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
           // window.location.href = url.replace('https://slyp.app','https://ndcurve.com')
+
+          // Current
+          // window.location.href = url.replace('https','x-safari-https') + '?skipiosreload'
+
+          window.location = window.location.href.replace('https','x-safari-https')
         }
     }
 
@@ -79,7 +82,7 @@
             // window.open(url.replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''), '_system')
             // alert(url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', ''))
             // window.location.href = url.replace('x-safari-https', 'https').replace('ndcurve.com', 'slyp.app').replace('?skipiosreload', '')
-            execute()
+            // execute()
             return
         }
 
@@ -88,7 +91,7 @@
             return
         }
 
-        let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
+         let app = url.replace('https://slyp.app/links/', '').split('/')[0].split('.')[0]
 
         const isWebView = isWebViewContext()
 
