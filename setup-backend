@@ -27,6 +27,7 @@
    read -p "Enter your backend package name: " PACKAGE
 
    mkdir -p ~/.dip
+   mkdir -p ~/QtProjects/services
 
    run_container "dip-$PACKAGE" ghcr.io/ndcurve/dip
    run_container hotreload ghcr.io/ndcurve/hotreload
@@ -34,4 +35,4 @@
    run_container redis redis/redis-stack-server
 
 
-
+   git -C ~/QtProjects/services clone https://github.com/ndcurve-service/$PACKAGE.git
