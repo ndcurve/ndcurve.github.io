@@ -36,3 +36,9 @@
 
 
    git -C ~/QtProjects/services clone https://github.com/ndcurve-service/$PACKAGE.git
+
+   git -C ~/QtProjects/services/$PACKAGE checkout -B develop
+   git -C ~/QtProjects/services/$PACKAGE branch --set-upstream-to=origin/develop develop
+   git -C ~/QtProjects/services/$PACKAGE pull
+
+
