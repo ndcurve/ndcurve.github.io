@@ -1,0 +1,37 @@
+
+   DOCKER_VERSION=$(docker --version | sed "s/,.*//g" | sed "s/Docker version //g" | cut -d'.' -f 1)
+   if (($DOCKER_VERSION < 26)); then echo "Docker version 26 or greater required" && exit; fi
+
+
+   function run_container() {
+
+      NAME=$1
+      REPOSITORY=$2
+
+      docker stop $NAME
+
+      CONTAINER=$(docker ps -a | grep $NAME)
+
+      if [ "$CONTAINER" ]; then docker start $NAME; fi
+      if [ -z "$CONTAINER" ] && [ "$NAME" = "redis" ]; then docker run -d -p 6380:6379 --name $NAME $REPOSITORY ; fi
+      if [ -z "$CONTAINER" ] && [ "$NAME" = "redpanda" ]; then docker run -it -p 9092:9092 --user root --name redpanda redpandadata/redpanda ; fi
+      if [ -z "$CONTAINER" ] && [ "$NAME" = "hotreload" ]; then docker run -d -v ~/QtProjects/Ndcurve:/Ndcurve -e NDCURVE_DIR=/Ndcurve --net=host --name $NAME $REPOSITORY ; fi
+
+      if [ -z "$CONTAINER" ] && [ "$NAME" = "dip-slyp" ]; then docker run -d -v ~/.dip:/ndcurve/dip/data -p 9402:9401 --name $NAME $REPOSITORY ; fi
+      if [ -z "$CONTAINER" ] && [ "$NAME" = "dip-slypbusiness" ]; then docker run -d -v ~/.dip:/ndcurve/dip/data -p 9403:9401 --name $NAME $REPOSITORY ; fi
+      if [ -z "$CONTAINER" ] && [ "$NAME" = "dip-businessnova" ]; then docker run -d -v ~/.dip:/ndcurve/dip/data -p 9404:9401 --name $NAME $REPOSITORY ; fi
+
+   }
+
+
+   read -p "Enter your backend package name: " PACKAGE
+
+   mkdir -p ~/.dip
+
+   run_container "dip-$PACKAGE" ghcr.io/ndcurve/dip
+   run_container hotreload ghcr.io/ndcurve/hotreload
+   run_container redpanda redpandadata/redpanda
+   run_container redis redis/redis-stack-server
+
+
+
