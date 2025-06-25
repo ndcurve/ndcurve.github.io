@@ -42,3 +42,5 @@
    git -C ~/QtProjects/Ndcurve/services/$PACKAGE pull
 
    source ~/QtProjects/Ndcurve/services/$PACKAGE/docker.start
+
+   # Todo: run npm install
