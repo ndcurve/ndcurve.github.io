@@ -41,4 +41,4 @@
    git -C ~/QtProjects/Ndcurve/services/$PACKAGE branch --set-upstream-to=origin/develop develop
    git -C ~/QtProjects/Ndcurve/services/$PACKAGE pull
 
-
+   source ~/QtProjects/Ndcurve/services/$PACKAGE/docker.start
