@@ -27,3 +27,4 @@
     touch Ndcurve/Target.json &&
     (cd Ndcurve && ./syp init) || exit
 
+    # Todo: syp hotreload true
