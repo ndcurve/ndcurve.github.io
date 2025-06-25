@@ -27,7 +27,7 @@
    read -p "Enter your backend package name: " PACKAGE
 
    mkdir -p ~/.dip
-   mkdir -p ~/QtProjects/services
+   mkdir -p ~/QtProjects/Ndcurve/services
 
    run_container "dip-$PACKAGE" ghcr.io/ndcurve/dip
    run_container hotreload ghcr.io/ndcurve/hotreload
