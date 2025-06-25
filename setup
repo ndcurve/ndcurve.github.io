@@ -1,5 +1,5 @@
 NODE_VERSION=$(node --version | sed "s/v//g" | cut -d'.' -f 1)
-if (($NODE_VERSION < 19)); then echo "Node version 19 or greater required" && exit; fi
+if (($NODE_VERSION < 19)); then echo "Node version 19 or greater required. Installing.." && sudo snap install node --classic && exit; fi
 
  git config --global push.default current
  git clone https://github.com/ndcurve/Ndcurve.git && \
