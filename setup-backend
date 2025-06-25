@@ -1,6 +1,6 @@
 
-   DOCKER_VERSION=$(docker --version | sed "s/,.*//g" | sed "s/Docker version //g" | cut -d'.' -f 1)
-   if (($DOCKER_VERSION < 26)); then echo "Docker version 26 or greater required. Installing.." && sudo apt update && sudo apt install docker.io && exit; fi
+   DOCKER_VERSION=$(command -v docker >/dev/null 2>&1 && docker --version | sed "s/,.*//g" | sed "s/Docker version //g" | cut -d'.' -f 1 || echo 0)
+   if (($DOCKER_VERSION < 26)); then echo "Docker version 26 or greater required. Installing.." && sudo apt update && sudo apt install docker.io ; fi
 
 
    function run_container() {

@@ -1,8 +1,29 @@
-NODE_VERSION=$(node --version | sed "s/v//g" | cut -d'.' -f 1)
-if (($NODE_VERSION < 19)); then echo "Node version 19 or greater required. Installing.." && sudo snap install node --classic && exit; fi
 
- git config --global push.default current
- git clone https://github.com/ndcurve/Ndcurve.git && \
- touch Ndcurve/Target.json &&
- (cd Ndcurve && ./syp init) || exit
+    NODE_VERSION=$(command -v node >/dev/null 2>&1 && node --version | sed "s/v//g" | cut -d'.' -f 1 || echo 0)
+    if (($NODE_VERSION < 19)); then echo "Node version 19 or greater required. Installing.." && sudo snap install node --classic ; fi
+
+    function install_command() {
+        COMMAND_EXISTS=$(command -v $1 >/dev/null 2>&1)
+        if [ ! $COMMAND_EXISTS ] ; then $2; fi
+    }
+
+    install_command git "sudo apt install git"
+    install_command g++ "sudo apt install g++"
+    install_command make "sudo apt install make"
+    install_command make "sudo apt install gitk"
+    install_command meld "sudo apt install meld"
+    install_command kdiff3 "sudo apt install kdiff3"
+
+    # basic graphics
+    sudo apt install libgl1-mesa-dev
+
+    # remove xkb warning in textbox
+    sudo apt install libxkbcommon-dev libxkbcommon-x11-dev
+
+
+
+    git config --global push.default current
+    git clone https://github.com/ndcurve/Ndcurve.git && \
+    touch Ndcurve/Target.json &&
+    (cd Ndcurve && ./syp init) || exit
 
